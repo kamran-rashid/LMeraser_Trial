@@ -21,7 +21,7 @@ import torch.nn as nn
 import torch.utils.checkpoint as checkpoint
 
 from timm.data import IMAGENET_DEFAULT_MEAN, IMAGENET_DEFAULT_STD
-from timm.models.helpers import build_model_with_cfg, overlay_external_default_cfg
+from timm.models import build_model_with_cfg
 from timm.models.layers import PatchEmbed, Mlp, DropPath, to_2tuple, trunc_normal_
 from timm.models.registry import register_model
 from timm.models.vision_transformer import checkpoint_filter_fn, _init_vit_weights
@@ -529,7 +529,7 @@ class SwinTransformer(nn.Module):
 def _create_swin_transformer(variant, pretrained=False, default_cfg=None, **kwargs):
     if default_cfg is None:
         default_cfg = deepcopy(default_cfgs[variant])
-    overlay_external_default_cfg(default_cfg, kwargs)
+    default_cfg.update(kwargs)
     default_num_classes = default_cfg['num_classes']
     default_img_size = default_cfg['input_size'][-2:]
 
