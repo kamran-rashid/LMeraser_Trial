@@ -1,0 +1,21 @@
+# Virtual env
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# IDE
+.idea/
+.vscode/
+
+# Checkpoints
+*.pth
+*.pt
+*.ckpt
+*.bin
+
+# Logs
+logs/
+outputs/
+checkpoints/
