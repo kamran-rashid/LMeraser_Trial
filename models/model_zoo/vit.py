@@ -16,7 +16,7 @@ import backbones
 def ViT_B_1K(args):
     """Construct vit_b_p16_224 pretrained on ImageNet-1K."""
     model = create_model(
-        'jx_vit_base_patch16_224',
+        'vit_base_patch16_224',
         pretrained=False,
         num_classes=1000,
         drop_rate=args.drop,
@@ -29,7 +29,7 @@ def ViT_B_1K(args):
 def ViT_B_21K(args):
     """Construct vit_b_p16_224 pretrained on ImageNet-21K."""
     model = create_model(
-        'jx_vit_base_patch16_224_in21k',
+        'vit_base_patch16_224_in21k',
         pretrained=False,
         num_classes=21843,
         drop_rate=args.drop,
