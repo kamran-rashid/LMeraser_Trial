@@ -240,7 +240,8 @@ class Eraser(object):
                 if rep_gather.size(0) > 1000:
                     rep_gather = rep_gather[:1000]
                     break
-
+        if rep_gather.dim() == 3:
+            rep_gather = rep_gather[:, 0, :]
         y_pred = hc.fit(rep_gather.detach().cpu().numpy()).labels_
         y_pred = torch.from_numpy(y_pred).to(self.devicename)
         coarse_class_idx = torch.unique(y_pred)
