@@ -23,7 +23,7 @@ def ViT_B_1K(args):
         drop_path_rate=args.drop_path,
         drop_block_rate=None,
     )
-    return _load_checkpoint(args, model)
+    return model
 
 
 def ViT_B_21K(args):
@@ -36,7 +36,7 @@ def ViT_B_21K(args):
         drop_path_rate=args.drop_path,
         drop_block_rate=None,
     )
-    return _load_checkpoint(args, model)
+    return model
 
 
 def _load_checkpoint(args, model):
